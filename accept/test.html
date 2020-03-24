@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form method="post" action="/form" enctype="multipart/form-data">
+        <input type="text" name="name"/>
+        <input type="text" name="pwd"/>
+        <input type="file" name="file"/>
+        <input type="submit"/>
+    </form> -->
+    <form id="form">
+        <input type="text" name="name"/>
+        <input type="text" name="pwd"/>
+        <input type="file" name="file"/>
+        <input type="submit"/>
+    </form>
+</body>
+<script>
+    var form = document.getElementById('form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        console.log(formData)
+        fetch('/form', {
+            method: 'POST',
+            body: formData
+        })
+    })
+</script>
+</html>
